@@ -8,7 +8,7 @@
  * Plugin URI:        https://www.kntnt.com/
  * GitHub Plugin URI: https://github.com/Kntnt/kntnt-form-shortcode-deny-email-domains
  * Description:       Prevents visitors to submit forms built with Kntnt Form Shortcode (KFS) if there is a email field with an email domain listed in a deny list.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Thomas Barregren
  * Author URI:        https://www.kntnt.com/
  * License:           GPL-3.0+

@@ -3,11 +3,13 @@
 spl_autoload_register( function ( $class ) {
     static $ns, $ns_len;
     if ( ! $ns ) {
-        $dn = explode( '-', ucwords( basename( __DIR__ ), '-' ) );
-        $ns = array_shift( $dn ) . '\\' . implode( '_', $dn );
+        $dir = strtr( ucwords( basename( __DIR__ ), '-' ), '-', '_' );
+        $pos = strpos( $dir, '_', 0 );
+        $ns = substr( $dir, 0, $pos ) . '\\' . substr( $dir, $pos + 1 );
         $ns_len = strlen( $ns );
     }
-    if ( 0 == substr_compare( $class, $ns, 0, $ns_len ) ) {
-        require_once __DIR__ . '/classes/' . substr( $class, $ns_len + 1 ) . '.php';
+    if ( substr( $class, 0, $ns_len ) === $ns ) {
+        $file = __DIR__ . '/classes/' . substr( $class, $ns_len + 1 ) . '.php';
+        require_once $file;
     }
 } );
