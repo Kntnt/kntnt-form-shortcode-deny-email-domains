@@ -8,8 +8,7 @@ spl_autoload_register( function ( $class ) {
         $ns = substr( $dir, 0, $pos ) . '\\' . substr( $dir, $pos + 1 );
         $ns_len = strlen( $ns );
     }
-    if ( substr( $class, 0, $ns_len ) === $ns ) {
-        $file = __DIR__ . '/classes/' . substr( $class, $ns_len + 1 ) . '.php';
-        require_once $file;
+    if ( ( $len = strrpos( $class, '\\' ) ) == $ns_len && substr( $class, 0, $len ) == $ns ) {
+        require_once __DIR__ . '/classes/' . substr( $class, $ns_len + 1 ) . '.php';
     }
 } );
