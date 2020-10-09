@@ -22,6 +22,8 @@ class Plugin extends Abstract_Plugin {
         ];
     }
 
+    protected static function dependencies() { return [ 'kntnt-form-shortcode/kntnt-form-shortcode.php' => 'Kntnt Form Shortcode' ]; }
+
     protected function menu_title() {
         return __( 'KFS Deny Email Domains', 'kntnt-form-shortcode-deny-email-domains' );
     }
