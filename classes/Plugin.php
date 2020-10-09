@@ -9,8 +9,6 @@ class Plugin extends Abstract_Plugin {
     use Logger;
     use Options;
     use Includes;
-
-    //use Uploads;
     use Settings;
 
     public function classes_to_load() {
