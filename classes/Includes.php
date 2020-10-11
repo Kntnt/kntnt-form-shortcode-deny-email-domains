@@ -19,11 +19,13 @@ trait Includes {
     // resulting content is included at the point of execution of this function
     // if  `$return_template_as_string` is false (default), otherwise returned
     // as a string.
+    /** @noinspection PhpInconsistentReturnPointsInspection */
     public static final function load_from_includes( $include_file, $variables = [], $return_as_string = false ) {
         extract( $variables, EXTR_SKIP );
         if ( $return_as_string ) {
             ob_start();
         }
+        /** @noinspection PhpIncludeInspection */
         require self::path_to_include_file( $include_file );
         if ( $return_as_string ) {
             return ob_get_clean();

@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpUnused */
 
 
 namespace Kntnt\Form_Shortcode_Deny_Email_Domains;
