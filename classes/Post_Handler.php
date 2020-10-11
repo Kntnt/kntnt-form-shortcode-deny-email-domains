@@ -29,7 +29,7 @@ final class Post_Handler {
     }
 
     private function is_blocked( $email ) {
-        if ( ( $pos = strpos( $email, '@' ) ) !== false ) {
+        if ( false !== filter_var( $email, FILTER_VALIDATE_EMAIL ) && ( $pos = strpos( $email, '@' ) ) !== false ) {
             $domain = strtolower( substr( $email, $pos + 1 ) );
             $is_blocked = in_array( $domain, Plugin::option( 'domains' ) );
             if ( $is_blocked ) {
